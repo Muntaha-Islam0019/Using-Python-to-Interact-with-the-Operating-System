@@ -1,9 +1,9 @@
 import re
 def show_time_of_pid(line):
   # Incomplete  
-  pattern = r"(\w+) (\d+) (\d+\:\d+\:\d+) [\w\W ]+(\d+)[\w\W ]+"
+  pattern = r"(\w+) (\d+) (\d+\:\d+\:\d+)[a-z_A-Z\:\.\=\[\] ]+(\d+)[a-z_A-Z\:\.\=\[\] ]+"
   result = re.search(pattern, line)
-  return result[1] + " " + result[2] + " " + result[3] + " " + result[4]
+  return result[1] + " " + result[2] + " " + result[3] + " pid:" + result[4]
 
 print(show_time_of_pid("Jul 6 14:01:23 computer.name CRON[29440]: USER (good_user)")) # Jul 6 14:01:23 pid:29440
 
